@@ -15,7 +15,10 @@ void setup()
   size(1280, 720, P3D);
   camera(0, 0, Window.eyeZ, 0, 0, 0, 0, -1, 0);
   
-  // myWalker.acceleration = new PVector(-0.01, 0.1);
+  for(int i = 0; i < walkers.length; i++)
+    {
+      walkers[i] = new Walker();
+    }  
 }
 
 void draw()
@@ -23,16 +26,6 @@ void draw()
   background(80);
   
   PVector mouse = mousePos();
-  
-  // Initializing walkers
-  if (!isInitialized)
-  {
-    for(int i = 0; i < walkers.length; i++)
-    {
-      walkers[i] = new Walker();
-    }  
-    isInitialized = true;
-  }
   
   for(int i = 0; i < walkers.length; i++)
     {
